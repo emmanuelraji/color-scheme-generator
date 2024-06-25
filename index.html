@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Color Scheme Generator</title>
+    <meta name="description" content="Description of site" />
+    <meta name="author" content="Author of the site" />
+
+    <!-- Open Graph Protocol - to share social media card -->
+    <!-- 
+      <meta property="og:title" content="A brief description"
+      <meta property="og:type" content="website"
+      <meta property="og:url" content="https://www.mysite"
+      <meta property="og:description" content="A brief description"
+      <meta property="og:image" content="img.png"
+     -->
+
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <label for="colot"></label>
+          <input type="color" name="color" id="color" />
+        </div>
+        <div>
+          <label for="scheme-choices"></label>
+          <select name="scheme-choices" id="scheme-choices">
+            <option value="monochrome">Monochrome</option>
+            <option value="monochrome-dark">Monochrome-dark</option>
+            <option value="monochrome-light">Monochrome-light</option>
+            <option value="analogic">Analogic</option>
+            <option value="complement">Complement</option>
+            <option value="analogic-complement">Analogic-complement</option>
+            <option value="triad">Triad</option>
+            <option value="quad">Quad</option>
+          </select>
+        </div>
+        <button type="button">Get color scheme</button>
+      </header>
+      <main></main>
+    </div>
+  </body>
+</html>

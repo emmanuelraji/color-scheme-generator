@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(27, 27, 27);
+}
+
+.container {
+  max-width: 550px;
+  height: 550px;
+  background-color: antiquewhite;
+  flex: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 23px 14px;
+}
+
+select,
+button {
+  height: 42px;
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+
+select {
+  width: 312px;
+}
+
+button {
+  width: 123px;
+  font-size: 12px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+input {
+  height: 42px;
+  border: 1px solid #d1d5db;
+}
