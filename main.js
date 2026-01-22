@@ -1,29 +1,32 @@
-const getColorBtn = document.querySelector("button");
-const colorsWrapper = document.getElementById("colors-wrapper");
+const form = document.querySelector("form");
 
-onload = () => getColors("000000", "monochrome");
+fetch("https://www.thecolorapi.com/scheme?hex=00000")
+  .then((response) => response.json())
+  .then((data) => renderColorScheme(data.colors));
 
-getColorBtn.addEventListener("click", (e) => {
-  const colorInput = document.getElementById("color");
-  const hexColor = colorInput.value.substring(1, colorInput.value.length);
-  const selectorInput = document.querySelector("select").value;
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
 
-  getColors(hexColor, selectorInput);
+  fetch(
+    `https://www.thecolorapi.com/scheme?hex=${data.hex.substring(1)}&mode=${data.mode}`,
+  )
+    .then((response) => response.json())
+    .then((data) => renderColorScheme(data.colors));
 });
 
-function getColors(hex, mode) {
-  fetch(`https://www.thecolorapi.com/scheme?hex=${hex}&mode=${mode}&count=5`)
-    .then((response) => response.json())
-    .then((data) => renderColors(data.colors));
-}
-
-function renderColors(colors) {
+function renderColorScheme(colors) {
+  const colorsContainer = document.querySelector("#colors-container");
   let html = "";
-  for (let color of colors) {
+
+  colors.forEach((color) => {
+    const hex = color.hex.value;
     html += `
-        <img src=${color.image.bare} alt="${color.name.value} background" />
-        <p>${color.hex.value.toUpperCase()}</p>
+    <div class="color" style="background-color: ${hex};"></div>
+    <p>${hex.toUpperCase()}</p>
     `;
-  }
-  colorsWrapper.innerHTML = html;
+  });
+
+  colorsContainer.innerHTML = html;
 }

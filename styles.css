@@ -15,7 +15,7 @@ body {
   background-color: antiquewhite;
 }
 
-header {
+form {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,12 +50,12 @@ input {
 }
 
 main,
-.colors-wrapper {
+.colors-container {
   height: 100%;
   background-color: white;
 }
 
-.colors-wrapper {
+#colors-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 420px 1fr;
