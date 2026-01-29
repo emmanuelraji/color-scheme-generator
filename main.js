@@ -1,4 +1,5 @@
 const form = document.querySelector("form");
+const colorsContainer = document.querySelector("#colors-container");
 
 fetch("https://www.thecolorapi.com/scheme?hex=00000")
   .then((response) => response.json())
@@ -17,7 +18,6 @@ form.addEventListener("submit", (event) => {
 });
 
 function renderColorScheme(colors) {
-  const colorsContainer = document.querySelector("#colors-container");
   let html = "";
 
   colors.forEach((color) => {
